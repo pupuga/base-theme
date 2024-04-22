@@ -1,0 +1,47 @@
+@import "../config";
+
+.wp-block-group {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+  h1 {
+    font-size: rem(36px, $font-size);
+  }
+  ul,
+  ol,
+  li,
+  p {
+    font-size: rem(18px, $font-size);
+    line-height: 1.4;
+    font-weight: 400;
+    font-family: $font-family;
+  }
+  &__inner-container {
+    &:first-child {
+      padding-top: rem(20px, $font-size);
+    }
+    &:not(:first-child) {
+      padding-top: rem(45px, $font-size);
+    }
+    & > * {
+      &:not(:first-child) {
+        padding-top: rem(45px, $font-size);
+      }
+      & > * {
+        @include media-768 {
+          flex-wrap: wrap;
+          min-width: 100% !important;
+          width: 100%;
+          flex: 1 1;
+          margin: 0 !important;
+          &:last-child {
+            padding: 0;
+          }
+          &:not(:last-child) {
+            padding: 0 0 2rem 0;
+          }
+        }
+      }
+    }
+  }
+}

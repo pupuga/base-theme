@@ -1,0 +1,299 @@
+@import "../config";
+
+$block-small-font-size: 16px;
+$block-big-font-size: rem(18px, $font-size);
+$block-small-side-padding: rem(18px, $font-size);
+$block-big-side-padding: rem(22px, $font-size);
+$block-lang-side-padding: $block-small-side-padding;
+
+.general-menu {
+  list-style: none;
+  display: inline-flex;
+  @include media-992 {
+    &--second,
+    &--main {
+      display: none;
+    }
+  }
+  li {
+    display: flex;
+    &.current-menu-item {
+      a {
+        background-color: $second-color;
+      }
+    }
+  }
+  a {
+    display: flex;
+    align-items: center;
+  }
+  select,
+  option,
+  a {
+    cursor: pointer;
+    color: $main-color;
+    font-weight: 400;
+  }
+  a {
+    &:hover {
+      color: white;
+      background-color: $second-color;
+    }
+  }
+  select {
+    font-size: $block-small-font-size;
+    border: transparent;
+    background-color: transparent;
+    appearance:none;
+    line-height: 1.1;
+  }
+  &--small {
+    font-size: $block-small-font-size;
+    option {
+      font-size: $block-small-font-size;
+    }
+    a {
+      padding: 0 $block-small-side-padding;
+    }
+  }
+  &--big {
+    font-size: $block-big-font-size;
+    option {
+      font-size: $block-big-font-size;
+    }
+    a {
+      padding: 0 $block-big-side-padding;
+    }
+  }
+  &--lang {
+    position: relative;
+    z-index: 1;
+    margin-right: $block-lang-side-padding;
+    &:after {
+      content: url('../../images/chevron-down-solid.svg');
+      display: block;
+      width: 10px;
+      height: auto;
+      top: calc(50% - 7px);
+      right: 0;
+      position: absolute;
+      z-index: 1;
+    }
+    select {
+      padding: 0 $block-lang-side-padding;
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+
+.column-nav {
+  display: inline-block;
+}
+.column-menu {
+  list-style: none;
+  display: inline-block;
+  li {
+    display: flex;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  a {
+    color: $main-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    &:hover {
+      opacity: 0.8;
+    }
+    &:before {
+      content: url("../../images/chevron-down-solid.svg");
+      width: 10px;
+      margin-right: 3px;
+      transform: matrix(0, -1, 1, 0, 0, 0);
+    }
+  }
+}
+
+.icons-menu {
+  $block-item-background-color: #ffffff;
+  $block-item-size: 164px;
+  $block-item-padding: 20px;
+  $block-item-side-width: 9px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent linear-gradient(108deg, #0b4e99 0%, #1480be 49%, #0b4e99 100%) 0 0 no-repeat padding-box;
+  padding: rem(76px, $font-size) 0 rem(95px, $font-size) 0;
+  border-bottom: $blocks-bottom-line-height solid $second-color;
+  @include media-768 {
+    padding: rem(35px, $font-size) 0 rem(82px, $font-size) 0;
+  }
+  &__skeleton {
+    display: block;
+    width: 100%;
+    max-width: $max-width;
+    padding-left: $side-width - $block-item-side-width;
+    padding-right: $side-width - $block-item-side-width;
+    text-align: center;
+  }
+  &__title {
+    font-size: 28px;
+    color: #F4F4F4;
+    font-weight: 600;
+    line-height: 40px;
+    padding-left: $block-item-side-width;
+    padding-right: $block-item-side-width;
+  }
+  &__block {
+    padding-top: rem(42px, $font-size);
+    @include media-768 {
+      padding-top: rem(16px, $font-size);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    ul {
+      width: 100%;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    li {
+      padding: $block-item-side-width;
+      display: flex;
+      @include media-768 {
+        min-width: 50%;
+        &:nth-child(2n + 1) {
+          justify-content: flex-start;
+        }
+        &:nth-child(2n) {
+          justify-content: flex-end;
+        }
+        &.icon-search {
+          order: 4;
+        }
+        &.icon-rate {
+          order: 3;
+        }
+        &.icon-login {
+          order: 2;
+        }
+        &.icon-register {
+          order: 1;
+        }
+      }
+      &.icon-search {
+        a {
+          &:before {
+            content: url("../../images/icon-search.svg");
+          }
+        }
+      }
+      &.icon-rate {
+        a {
+          &:before {
+            content: url("../../images/icon-rate.svg");
+          }
+        }
+      }
+      &.icon-login {
+        a {
+          &:before {
+            content: url("../../images/icon-login.svg");
+          }
+        }
+      }
+      &.icon-register {
+        a {
+          &:before {
+            content: url("../../images/icon-register.svg");
+          }
+        }
+      }
+    }
+    a {
+      box-sizing: border-box;
+      display: block;
+      background-color: #ffffff;
+      border-radius: $border-radius;
+      font-size: 24px;
+      font-weight: 700;
+      color: $element-color;
+      width: $block-item-size;
+      height: $block-item-size;
+      border: 2px solid $block-item-background-color;
+      padding: $block-item-padding $block-item-padding/2;
+      &:hover {
+        border-color: $second-color;
+      }
+      &:before {
+        display: block;
+        height: 71px;
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
+
+.general-mobile-menu {
+  width: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: transparent linear-gradient(108deg, #0B4E99 0%, #1480BE 49%, #0B4E99 100%) 0 0 no-repeat padding-box;
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+  .general-menu {
+    flex: 1 1;
+    min-width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    &--main {
+      order: 1;
+    }
+    &--second {
+      order: 2;
+    }
+    &--big {
+      a {
+        font-size: 18px;
+      }
+    }
+    &--small {
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+  li {
+    min-width: 100%;
+    flex: 1 1;
+    padding: 0;
+    border: none;
+  }
+  a {
+    min-width: 100%;
+    flex: 1 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 68px;
+    padding-top: $side-width;
+    padding-bottom: $side-width;
+    color: white;
+    border-bottom: 1px solid $second-color;
+    line-height: 1;
+    background-color: transparent;
+  }
+}

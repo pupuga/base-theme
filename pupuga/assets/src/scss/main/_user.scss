@@ -1,0 +1,137 @@
+@import "../config";
+@import "./mixins";
+
+$block-login-width: 352px;
+
+body {
+  &.uwp_page {
+    .general-section {
+      background: transparent linear-gradient(180deg, #f2f9fd 0%, #d7edfa 50%, #f0f9ff 100%) 0 0 no-repeat padding-box;
+    }
+    .general-title {
+      padding-top: rem(92px, $font-size);
+      @include media-992 {
+        padding-top: rem(30px, $font-size);
+      }
+      @include media-480 {
+        max-width: $block-login-width;
+      }
+    }
+  }
+}
+
+.bsui {
+  input[type = 'text'],
+  input[type = 'password'] {
+    font-size: 16px;
+  }
+  .uwp_page {
+    & > .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .btn-primary {
+      @include button;
+    }
+  }
+  .card {
+    padding: 0 !important;
+    background-color: transparent !important;
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #000000;
+    }
+    .uwp-login-form,
+    .uwp-registration-form {
+      background-color: #ffffff;
+      border-radius: $border-radius !important;
+      padding: rem(14px, $font-size) rem(22px, $font-size) rem(30px, $font-size);
+      & > *:not(button) {
+        margin-bottom: 0 !important;
+        margin-top: rem(16px, $font-size);
+      }
+    }
+    .card-body {
+      padding: 0 !important;
+    }
+    label {
+      position: initial;
+      overflow: initial;
+      height: auto;
+      width: 100%;
+      text-align: center;
+      line-height: 1.2;
+      padding: rem(5px, $font-size) 0 rem(8px, $font-size);
+      font-size: 16px;
+      color: #2e2e2e;
+    }
+    input::placeholder {
+      font-size: 14px;
+    }
+  }
+}
+
+.user-login-register {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: rem(100px, $font-size);
+  @include media-576 {
+    display: block;
+    padding-bottom: rem(30px, $font-size);
+  }
+  & > * {
+    flex: 1 1;
+    width: 100%;
+    display: flex;
+    @include media-576 {
+      padding-bottom: 2 * $side-width;
+    }
+    &:first-child {
+      padding-right: $side-width;
+      position: relative;
+      z-index: 1;
+      border-right: 1px solid #c3c3c3;
+      @include media-576 {
+        justify-content: center;
+        padding-right: 0;
+        border-right: none;
+      }
+    }
+    &:last-child {
+      padding-left: $side-width;
+      justify-content: flex-end;
+      @include media-576 {
+        justify-content: center;
+        padding-left: 0;
+      }
+    }
+    & > * {
+      flex: 1 1;
+      max-width: $block-login-width
+    }
+  }
+  .progress {
+    display: none !important;
+  }
+}
+
+.user-profile {
+  padding: rem(60px, $font-size) 0 rem(60px, $font-size);
+  ul, li, p, a {
+    font-size: rem(16px, $font-size);
+    color: $main-color;
+    line-height: 1.25;
+    font-weight: 600;
+  }
+  u, li {
+    list-style: none;
+  }
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import "../config";
+
+$block-item-size: 29px;
+
+.pagination {
+  padding-top: rem(50px, $font-size);
+  padding-left: rem($block-item-size, $font-size);
+  display: flex;
+  @include media-992 {
+    padding-left: 0;
+  }
+  .page-numbers {
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    min-width: rem($block-item-size, $font-size);
+    height: rem($block-item-size, $font-size);
+    padding: 0 5px;
+    line-height: 1;
+    text-decoration: none;
+    &:not(:first-child) {
+      margin-left: 4px;
+    }
+    &.prev {
+      &:before {
+        content: url('../../images/chevron-down-solid-white.svg');
+        width: 13px;
+        margin-right: 10px;
+        transform: rotate(90deg);
+      }
+    }
+    &.next {
+      &:after {
+        content: url('../../images/chevron-down-solid-white.svg');
+        width: 13px;
+        margin-left: 10px;
+        transform: rotate(270deg);
+      }
+    }
+    &.dots {
+      color: $main-color;
+      align-items: flex-end;
+    }
+    &:not(.dots) {
+      align-items: center;
+      font-size: rem(18px, $font-size);
+      font-weight: 600;
+      border: 1px solid $main-color;
+      &.current {
+        background-color: #ffffff;
+        color: $main-color;
+      }
+      &:not(.current) {
+        cursor: pointer;
+        background-color: $main-color;
+        color: #ffffff;
+        &:hover {
+          box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.2);
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}

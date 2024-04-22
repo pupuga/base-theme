@@ -1,0 +1,69 @@
+@import "../config";
+
+$block-height: 90px;
+$block-left-max-width: 37%;
+$second-nav-area-height: 38px;
+$main-nav-area-height: $block-height - $second-nav-area-height;
+
+.general-header {
+  background: white;
+  border-bottom: $blocks-bottom-line-height solid $second-color;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 100;
+  @include media-992 {
+    border-bottom: $blocks-bottom-line-height * 0.5 solid $second-color;
+  }
+  &__skeleton {
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    background-color: white;
+    @include media-992 {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    & > * {
+      position: relative;
+      z-index: 1;
+    }
+    & > *:first-child {
+      max-width: $block-left-max-width;
+    }
+  }
+  &__skeleton-blocks {
+    @include media-992 {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__bottom {
+    position: absolute;
+    bottom: 500px;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    transition: 0.5s;
+    display: none;
+    @include media-992 {
+      display: block;
+      &.open {
+        bottom: -0.5 * $blocks-bottom-line-height;
+      }
+    }
+  }
+}
+
+.general-nav {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  &:nth-child(1) {
+    height: $second-nav-area-height;
+  }
+  &:nth-child(2) {
+    height: $main-nav-area-height;
+  }
+}

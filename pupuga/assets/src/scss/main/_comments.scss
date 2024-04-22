@@ -1,0 +1,51 @@
+@import "../config";
+
+.comments-list {
+  background-color: #ffffff;
+  padding: rem(30px, $font-size) rem($block-side-width, $font-size);
+  border-radius: 0 0 $border-radius $border-radius;
+  @include media-576 {
+    padding-left: $side-width;
+    padding-right: $side-width;
+  }
+  a {
+    color: $main-color;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &__title {
+    font-size: rem(24px, $font-size);
+    font-weight: 400;
+  }
+  &__item {
+    border-bottom: 1px solid #c3c3c3;
+    padding: rem(28px, $font-size) 0;
+    display: flex;
+    flex-wrap: wrap;
+    & > * {
+      flex: 1 1;
+      min-width: 100%;
+      width: 100%;
+    }
+  }
+  &__moderation {
+    padding-bottom: 5px;
+    color: $color-error;
+  }
+  &__date {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  &__rating {
+    padding-top: 7px;
+  }
+  &__text {
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+  }
+}

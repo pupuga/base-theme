@@ -1,0 +1,1 @@
+<?php echo Pupuga\Libs\Files\Files::getTemplate(__DIR__ . '/page', true);

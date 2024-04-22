@@ -1,0 +1,58 @@
+@import "../config";
+
+@mixin button($color: $element-color, $font-size: 18px) {
+  box-sizing: border-box;
+  border-radius: $border-radius;
+  min-width: 196px;
+  min-height: $font-size * 2;
+  padding: $font-size / 2.3;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 22px auto 0 !important;
+  font-size: $font-size;
+  font-weight: 600;
+  line-height: 1.1;
+  text-transform: initial !important;
+  color: #efefef;
+  box-shadow: 0 3px 6px #00000029;
+  background-color: $color;
+  border: 1px solid $color;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:hover {
+    box-shadow: 0 0.5rem 1rem;
+    background-color: $color;
+    opacity: 0.95;
+  }
+}
+
+@mixin title($position: center) {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  @if ($position == center) {
+    text-align: center;
+    line-height: rem(51px, $font-size);
+    padding-top: rem(105px, $font-size);
+  } @else {
+    text-align: left;
+    padding-left: rem($item-padding, $font-size);
+    padding-right: rem($item-padding, $font-size);
+  }
+  color: $main-color;
+  font-size: rem(36px, $font-size);
+  font-weight: 600;
+  @include media-992 {
+    @if ($position == center) {
+      padding-top: rem(32px, $font-size);
+    }
+    line-height: 1.1;
+  }
+  @include media-480 {
+    text-align: left;
+    padding-top: 18px;
+    font-size: rem(24px, $font-size);
+  }
+}

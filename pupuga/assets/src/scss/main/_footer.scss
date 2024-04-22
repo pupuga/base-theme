@@ -1,0 +1,51 @@
+@import "../config";
+
+.general-footer {
+  width: 100%;
+  display: block;
+  &__bottom {
+    padding-top: rem(55px, $font-size);
+    padding-bottom: rem(65px, $font-size);
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+}
+
+.site-descriptions {
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  &__flag {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__text {
+    flex: 1 1;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: $element-color;
+    font-size: 20px;
+    font-weight: 600;
+    @include media-480 {
+      font-size: 17px;
+      line-height: 1.2;
+    }
+  }
+}
+
+.site-copy {
+  font-size: 16px;
+  color: $main-color;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  &:before {
+    content: url("../../images/icon-copyright.svg");
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 6px;
+  }
+}

@@ -1,0 +1,16 @@
+@import "../config";
+@import "fonts";
+@import "typografy";
+@import "common";
+@import "menu";
+@import "header";
+@import "footer";
+@import "user";
+@import "media-data";
+@import "form";
+@import "comments";
+@import "pagination";
+
+@include body($font-size, $max-width, $side-width, $font-family);
+@include base($font-family);
+@include responsive-button($main-color, 992, 2px, false, 40px, $side-width * 0.5);
